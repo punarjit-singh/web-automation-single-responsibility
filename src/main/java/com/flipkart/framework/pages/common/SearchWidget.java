@@ -14,7 +14,7 @@ public class SearchWidget extends AbstractComponent {
     @FindBy(name = "q")
     private WebElement searchBox;
 
-    public void enter(String keyword) {
+    public void search(String keyword) {
         this.searchBox.clear();
         this.searchBox.sendKeys(keyword);
         this.searchBox.sendKeys(Keys.ENTER);

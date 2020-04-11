@@ -80,4 +80,4 @@ Using test data from external source (json)
 * Compare product details with details captured from search results page
     
 ### Further
-This project can be further enhanced by including automatic CI/CD, docker grid setup, test reporting, logging, file input output utils, api testing utils and methods, data driven capabilities, mock servers and other latest testing techniques. Since this follows the single responsibility principle it is very easy to extend, maintain and add more functionality to the framework.
+This project can be further enhanced by adding a layer of DSL Cucumber BDD, automatic CI/CD, docker grid setup, test reporting, logging, file input output utils, api testing utils and methods, data driven capabilities, mock servers and other latest testing techniques. Since this follows the single responsibility principle it is very easy to extend, maintain and add more functionality to the framework.

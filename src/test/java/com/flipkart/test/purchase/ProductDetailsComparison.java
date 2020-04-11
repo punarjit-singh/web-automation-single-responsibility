@@ -52,7 +52,7 @@ public class ProductDetailsComparison extends BaseTest {
 
         homePage.waitForPageLoaded();
 
-        homePage.getSearchWidget().enter(testData.get("keyword").toString());
+        homePage.getSearchWidget().search(testData.get("keyword").toString());
         Assert.assertTrue(searchResultsPage.getResultList().isDisplayed());
 
         /*
