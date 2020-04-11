@@ -14,7 +14,7 @@ public class HomePage extends AbstractPage {
 
     public HomePage(WebDriver driver) {
         super(driver);
-        this.myAccountLink = new MyAccountLink(driver);
+        this.myAccountLink = PageFactory.initElements(driver, MyAccountLink.class);
         this.loginLink = PageFactory.initElements(driver, LoginLink.class);
         this.loginWidget = PageFactory.initElements(driver, LoginWidget.class);
         this.searchWidget = PageFactory.initElements(driver, SearchWidget.class);
