@@ -28,7 +28,7 @@ cd com/flipkart/framework/grid
 
 Note: please change corresponding paths to driver files before running this command:
 
-```java -Dwebdriver.gecko.driver=/Users/punarjitsingh/drivers/geckodriver -Dwebdriver.chrome.driver=/Users/punarjitsingh/drivers/chromedriver -jar selenium-server-standalone-3.141.59.jar -role node```
+```java -Dwebdriver.gecko.driver=/Users/punarjitsingh/drivers/geckodriver -Dwebdriver.chrome.driver=/Users/punarjitsingh/drivers/chromedriver -jar selenium-server-standalone-3.141.59.jar -role node -nodeConfig nodeConfig.json -debug```
 
 ### Running tests on grid
 Right-click on TestNG.xml and select Run
