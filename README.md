@@ -69,7 +69,7 @@ Right-click on TestNG.xml and select Run
 ```
 
 ### Important note regarding current flipkart.com
-Due to COVID-19 Flipkart.com has temporarily disabled the Add to Cart and Purchase functionalty. Hence to complete the assignment this test actually compares product details on Search Results page against product details on the Product Details page. Also, because flipkart.com requires an India based mobile number I just used my own flipkart.com credentials and will be changes the password in a few days.
+Due to COVID-19 Flipkart.com has temporarily disabled the Add to Cart and Purchase functionalty. Hence to complete the assignment this test actually compares product details on Search Results page against product details on the Product Details page. Also, because flipkart.com requires an India based mobile number I just used my own flipkart.com credentials and will be changing the password in a few days.
 
 ### Test Scenario Automated
 Using test data from external source (json)
@@ -80,4 +80,4 @@ Using test data from external source (json)
 * Compare product details with details captured from search results page
     
 ### Further
-This project can be further enhanced by including automatic CI/CD, docker grid setup, test reporting, logging, file input output utils, api testing utils and methods, data driven capabilities, mock servers and other latest testing techniques. Since this follows the single responsibility principle it is very easy to extend and add more functionality. 
+This project can be further enhanced by including automatic CI/CD, docker grid setup, test reporting, logging, file input output utils, api testing utils and methods, data driven capabilities, mock servers and other latest testing techniques. Since this follows the single responsibility principle it is very easy to extend, maintain and add more functionality to the framework.
