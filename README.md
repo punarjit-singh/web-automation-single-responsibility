@@ -31,7 +31,7 @@ Note: please change corresponding paths to driver files before running this comm
 ```java -Dwebdriver.gecko.driver=/Users/punarjitsingh/drivers/geckodriver -Dwebdriver.chrome.driver=/Users/punarjitsingh/drivers/chromedriver -jar selenium-server-standalone-3.141.59.jar -role node```
 
 ### Running tests on grid
-Right-click TestNG.xml and select Run
+Right-click on TestNG.xml and select Run
 
 ## Directory Structure:
 ```$xslt
