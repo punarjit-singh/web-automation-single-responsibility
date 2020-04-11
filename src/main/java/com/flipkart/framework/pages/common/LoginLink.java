@@ -17,8 +17,10 @@ public class LoginLink  extends AbstractComponent {
     private WebElement loginWidget;
 
     public void click() {
-        this.loginLink.click();
-        this.wait.until((driver) -> this.loginWidget.isDisplayed());
+        if(!this.loginWidget.isDisplayed()) {
+            this.loginLink.click();
+            this.wait.until((driver) -> this.loginWidget.isDisplayed());
+        }
     }
 
     @Override

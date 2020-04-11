@@ -20,22 +20,37 @@ public class ResultList extends AbstractComponent {
     @FindBy(css = "._1UoZlX")
     private List<WebElement> results;
 
+    /**
+     * selectRandomResultAndReturnProductInfo();
+     *
+     * Selects a random result from the result list
+     * @return product name and price in a Map<String, String>
+     *
+     */
     public Map<String, String> selectRandomResultAndReturnProductInfo() {
 
         int resultCount = results.size();
         Random random = new Random();
         int randomResult = random.nextInt(resultCount);
-        results.get(randomResult).click();
 
         /* *
          * Getting product information corresponding to the same random result as being selected.
+         *
+         * we're replacing the three dots ... in the product name with an empty string
+         * so that we can compare this substring with the product name from product details page
          */
-        String productName = results.get(randomResult).findElement(By.cssSelector("._3wU53n")).getText();
-        String price = results.get(randomResult).findElement(By.cssSelector("._1UoZlX [class*='_1vC4OE']")).getText();
+        String productName = results.get(randomResult).findElement(By.cssSelector("._3wU53n")).getText()
+                .replace("...","");
+
+        String price = results.get(randomResult).findElement(By.cssSelector("._1UoZlX [class*='_1vC4OE']")).getText()
+                .replace("...","");
 
         Map<String, String> Map = new HashMap<>();
-        Map.put("productName", productName);
+        Map.put("name", productName);
         Map.put("price", price);
+
+        results.get(randomResult).click();
+
         return Map;
     }
 

@@ -6,11 +6,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class AbstractComponent {
 
-    protected WebDriverWait wait;
+    public WebDriverWait wait;
+    public WebDriver driver;
 
     public AbstractComponent(final WebDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-//        PageFactory.initElements(driver, this);
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, 30);
+        PageFactory.initElements(driver, this);
     }
 
     protected abstract boolean isDisplayed();

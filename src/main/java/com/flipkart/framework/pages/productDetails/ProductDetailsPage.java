@@ -15,6 +15,12 @@ public class ProductDetailsPage extends AbstractPage {
         this.productPrice = PageFactory.initElements(driver, ProductPrice.class);
     }
 
+    public void switchToProductDetailsWindow() {
+        for(String winHandle : driver.getWindowHandles()){
+            driver.switchTo().window(winHandle);
+        }
+    }
+
     public ProductName getProductName() {
         return productName;
     }

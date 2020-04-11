@@ -13,12 +13,12 @@ public class ProductPrice extends AbstractComponent {
     @FindBy(css = "[class*='_1vC4OE']")
     private WebElement productPrice;
 
-    public String getProductPrice() {
+    public String getPrice() {
         return this.productPrice.getText();
     }
 
     @Override
-    protected boolean isDisplayed() {
+    public boolean isDisplayed() {
         return this.wait.until((driver) -> this.productPrice.isDisplayed());
     }
 }

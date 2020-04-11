@@ -8,19 +8,20 @@ import java.util.List;
 
 public class SearchSuggestion extends AbstractComponent {
 
-    @FindBy(css = "li._1va75j")
+    @FindBy(css = "[class*='_26x3Jb'] li._1va75j")
     private List<WebElement> suggestions;
 
     public SearchSuggestion(final WebDriver driver) {
         super(driver);
     }
 
-    public void clickSuggestionByIndex(int index) {
-        this.suggestions.get(index).click();
+    public void selectByIndex(String index) throws Exception {
+        this.wait.until((d) -> this.suggestions.get(Integer.parseInt(index)).isDisplayed());
+        this.suggestions.get(Integer.parseInt(index)).click();
     }
 
     @Override
     public boolean isDisplayed() {
-        return this.wait.until((d) -> this.suggestions.size() > 5);
+        return this.wait.until((d) -> this.suggestions.size() > 3 && this.suggestions.get(3).isDisplayed());
     }
 }
