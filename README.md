@@ -17,6 +17,10 @@ The project was designed on Mac OS Mojave using IntelliJ Idea 2019 community edi
 ## Setup
 Corresponding drivers are required for the tests to run successfully.
 
+```$xslt
+cd com/flipkart/framework/grid
+```
+
 ### Starting the Hub
 ```java -jar selenium-server-standalone-3.141.59.jar -role hub -hubConfig hubConfig.json -debug```
 
