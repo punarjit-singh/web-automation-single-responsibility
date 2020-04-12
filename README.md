@@ -17,14 +17,24 @@ The project was designed on Mac OS Mojave using IntelliJ Idea 2019 community edi
 ## Setup
 Corresponding drivers are required for the tests to run successfully.
 
-```$xslt
+### Clone the repo
+```markdown
+git clone https://github.com/punarjit-singh/flipkart-web-automation.git
+```
+
+### Project structure and compiler settings for IntelliJ
+* In Project Structure settings > Modules > Sources - Select language level 8 and click apply.
+* In IDE settings/preferences > Build, Execution, Deployment > Compiler > Java Compiler - Make sure Project Bytecode version is set to 8
+
+### Starting the grid
+```markdown
 cd com/flipkart/framework/grid
 ```
 
-### Starting the Hub
+#### Starting the Hub
 ```java -jar selenium-server-standalone-3.141.59.jar -role hub -hubConfig hubConfig.json -debug```
 
-### Starting the Nodes
+#### Starting the Nodes
 
 Note: please change corresponding paths to driver files before running this command:
 
@@ -34,7 +44,7 @@ Note: please change corresponding paths to driver files before running this comm
 Right-click on TestNG.xml and select Run
 
 ## Directory Structure:
-```$xslt
+```markdown
 ~root
         TestNG.xml for grid setup and parameterised execution
         

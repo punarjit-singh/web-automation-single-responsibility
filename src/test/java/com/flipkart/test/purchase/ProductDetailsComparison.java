@@ -42,17 +42,31 @@ public class ProductDetailsComparison extends BaseTest {
          */
         String projectRoot = System.getProperty("user.dir");
         Map<?,?> testData = jsonHelper.readJson(projectRoot + "/src/test/java/com/flipkart/test/testdata/flipkartTestData.json");
+        String baseUrl = testData.get("baseUrl").toString();
+        String email = testData.get("email").toString();
+        String password = testData.get("password").toString();
+        String keyword = testData.get("keyword").toString();
 
-        homePage.goTo(testData.get("baseUrl").toString());
+        /*
+         * Goto flipkart.com, open login widget and assert that widget is displayed
+         */
+        homePage.goTo(baseUrl);
         homePage.getLoginLink().click();
         Assert.assertTrue(homePage.getLoginWidget().isDisplayed());
 
-        homePage.getLoginWidget().login(testData.get("email").toString(), testData.get("password").toString());
+        /*
+         * Login to the application using test data from external source (json)
+         * and assert that user is logged in
+         */
+        homePage.getLoginWidget().login(email, password);
         Assert.assertTrue(homePage.getMyAccountLink().isDisplayed());
-
         homePage.waitForPageLoaded();
 
-        homePage.getSearchWidget().search(testData.get("keyword").toString());
+        /*
+         * Search for products using the keyword from test data
+         * and assert that result list is returned
+         */
+        homePage.getSearchWidget().search(keyword);
         Assert.assertTrue(searchResultsPage.getResultList().isDisplayed());
 
         /*
@@ -60,18 +74,32 @@ public class ProductDetailsComparison extends BaseTest {
          * so there's no need to add an explicit method that scrolls element into view
          * Although we can explicitly scroll an element into view with a custom js as below:
          * ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", webElement);
+
+         * Select a random result from the result list, store product details for comparison
+         * and assert that product detail is returned
          */
         Map<String, String> productInfoFromResults = searchResultsPage.getResultList().selectRandomResultAndReturnProductInfo();
         productDetailsPage.switchToProductDetailsWindow();
         Assert.assertTrue(productDetailsPage.getProductName().isDisplayed());
 
+        /*
+         * Get product details from product details page
+         */
         String productNameFromDetails = productDetailsPage.getProductName().getName();
         String productPriceFromDetails = productDetailsPage.getProductPrice().getPrice();
 
+        /*
+         * Assert that Product Name from Product Details Page matches
+         * Product Name from Search Result Page
+         */
         Assert.assertTrue(productNameFromDetails.contains( productInfoFromResults.get("name")),
                 "productNameFromResults: " + productInfoFromResults.get("name") +
                         " | productNameFromDetails: " + productNameFromDetails);
 
+        /*
+         * Assert that Product Price from Product Details Page matches
+         * Product Price from Search Result Page
+         */
         Assert.assertTrue(productPriceFromDetails.contains( productInfoFromResults.get("price")),
                 "productPriceFromResults: " + productInfoFromResults.get("price") +
                         " | productPriceFromDetails: " + productPriceFromDetails);
