@@ -28,10 +28,10 @@ public class ProductDetailsComparison extends BaseTest {
 
     @BeforeTest
     public void setupPages() {
-        this.homePage = new HomePage(driver);
-        this.searchResultsPage = new SearchResultsPage(driver);
-        this.productDetailsPage = new ProductDetailsPage(driver);
-        this.jsonHelper = new JsonHelper();
+        homePage = new HomePage(driver);
+        searchResultsPage = new SearchResultsPage(driver);
+        productDetailsPage = new ProductDetailsPage(driver);
+        jsonHelper = new JsonHelper();
     }
 
     @Test
@@ -41,7 +41,7 @@ public class ProductDetailsComparison extends BaseTest {
          * For demonstration purposes, reading test data from external json
          */
         String projectRoot = System.getProperty("user.dir");
-        Map<?,?> testData = jsonHelper.readJson(projectRoot + "/src/test/java/com/flipkart/test/testdata/flipkartTestData.json");
+        Map<?,?> testData = jsonHelper.readJson(projectRoot + "/src/main/java/com/flipkart/framework/testdata/flipkartTestData.json");
         String baseUrl = testData.get("baseUrl").toString();
         String email = testData.get("email").toString();
         String password = testData.get("password").toString();
